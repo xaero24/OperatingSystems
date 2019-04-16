@@ -1,0 +1,11 @@
+1) Order of prints:
+1. start - line 4, by parent
+2. else2 - line 17, by parent
+3. done - line 19, by parent
+4. else1 - line 16, by child
+5. if - line 12, by child
+6. done - line 19, by child
+
+2) If we delete line 13, which is executed by the child process,nothing will change since the waitpid() function waits on the child processes of process X, which the currrent child process doesn't have.
+
+3) Pipe is created between the child process and the parent process, with 2 variables ipc[0] and ipc[1]. The parent sends "else1" through the pipe to the child process and the latter prints it out in the do-while loop.
